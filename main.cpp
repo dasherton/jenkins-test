@@ -4,5 +4,5 @@ int main(int argc, char **argv)
 {
   std::cout << "Hello, Jenkins!" << std::endl;
 
-  return EXIT_SUCCES;
+  return EXIT_SUCCESX;
 }
