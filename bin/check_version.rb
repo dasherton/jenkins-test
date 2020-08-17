@@ -1,4 +1,3 @@
-=begin
 require 'open3'
 
 def get_version(str)
@@ -14,8 +13,4 @@ expected_version = ARGV[0]
 puts "Expected version: #{expected_version}"
 puts "Actual version: #{version}"
 
-puts version == expected_version
-
-=end
-
-exit 1
+version == expected_version
