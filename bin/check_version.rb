@@ -5,7 +5,7 @@ def get_version(str)
 	return matches[1]
 end
 
-excutable, expected_version = ARGV[0], ARGV[1]
+executable, expected_version = ARGV[0], ARGV[1]
 
 output, status = Open3.capture2("#{executable} version")
 
