@@ -1,14 +1,17 @@
 require 'open3'
 
+VERSION_REGEX = %r{\((.*?)\)}.freeze # TODO: Retrieve version without surrounding brackets
+
 def get_version(str)
-	matches = str.match(%r{\VERSION (\d.\d.\d)})
-	return matches[1]
+	matches = str.match(VERSION_REGEX)
+	return matches[0].gsub(/[\(\)]/, '')
 end
 
 executable, expected_version = ARGV[0], ARGV[1]
 
 output, status = Open3.capture2("#{executable} version")
 
+puts output
 version = get_version(output)
 
 puts "Expected version: #{expected_version}"
