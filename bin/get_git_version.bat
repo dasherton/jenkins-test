@@ -19,7 +19,7 @@ REM This just ensures we don't change the timestamp of the file every time we qu
 IF %full_version% == %version_contents% goto versions_equal
 
 echo New GIT version detected, overwriting version file
-echo %full_version% > ..\git_version.in
+echo %full_version% > git_version.in
 goto end
 
 :versions_equal
