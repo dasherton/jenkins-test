@@ -14,4 +14,5 @@ version = get_version(output)
 puts "Expected version: #{expected_version}"
 puts "Actual version: #{version}"
 
-version == expected_version
+return_value = (version == expected_version)
+exit(return_value)
