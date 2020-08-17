@@ -5,10 +5,11 @@ def get_version(str)
 	return matches[1]
 end
 
-output, status = Open3.capture2("../test.exe version")
+excutable, expected_version = ARGV[0], ARGV[1]
+
+output, status = Open3.capture2("#{executable} version")
 
 version = get_version(output)
-expected_version = ARGV[0]
 
 puts "Expected version: #{expected_version}"
 puts "Actual version: #{version}"
