@@ -7,6 +7,11 @@ def get_version(str)
 	return matches[0].gsub(/[\(\)]/, '')
 end
 
+if ARGV.length != 2
+	puts "Usage: ruby check_version.rb <executable_path> <expected_hash>"
+	exit(1)
+end
+
 executable, expected_version = ARGV[0], ARGV[1]
 
 output, status = Open3.capture2("#{executable} version")
