@@ -26,3 +26,5 @@ goto end
 echo The same GIT version was already detected, skipping overwrite
 
 :end
+
+if exist version_temp.txt del version_temp.txt
