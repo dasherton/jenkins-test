@@ -7,6 +7,12 @@ def get_version(str)
 	return matches[0].gsub(/[\(\)]/, '')
 end
 
+def print_result(result_str, expected, actual)
+	puts result_str
+	puts "\t Expected: #{expected}"
+	puts "\t   Actual: #{actual}"
+end
+
 if ARGV.length != 2
 	puts "Usage: ruby check_version.rb <executable_path> <expected_hash>"
 	exit(1)
@@ -16,10 +22,12 @@ executable, expected_version = ARGV[0], ARGV[1]
 
 output, status = Open3.capture2("#{executable} version")
 
-version = get_version(output)
+actual_version = get_version(output)
 
-puts "Expected version: #{expected_version}"
-puts "Actual version: #{version}"
-
-return_value = (version == expected_version)
-exit(return_value)
+if actual_version == expected_version
+	print_result("GIT SHA versions match:", expected_version, actual_version)
+	exit(0)
+else
+	print_result("GIT SHA versions do not match:", expected_version, actual_version)
+	exit(1)
+end
