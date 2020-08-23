@@ -25,6 +25,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="call bin/get_git_version.bat"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
@@ -97,6 +98,7 @@
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
+				CommandLine="call bin/get_git_version.bat"
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
