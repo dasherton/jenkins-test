@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Trigger out-of-source build
+cmake .. -B../linux
+
+# Compile using build dir just created
+cmake --build ../linux
+
